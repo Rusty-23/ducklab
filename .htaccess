@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /xampploc/Llames/duck-labs/
+
+SetEnv BASE_URL "/xampploc/Llames/duck-labs/"
+SetEnv SERVER_NAME "localhost"
+SetEnv DATABASE_USERNAME "root"
+SetEnv DATABASE_PASSWORD ""
+SetEnv DATABASE_NAME "ducklab"
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.(js|css|png|jpg|json.php|api.php)$
+RewriteRule ^(.*)$ index.php?slug=$1 [L,QSA]

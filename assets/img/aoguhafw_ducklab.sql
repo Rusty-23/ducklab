@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 08, 2023 at 04:45 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost:3306
+-- Generation Time: Jun 08, 2023 at 11:57 AM
+-- Server version: 10.3.28-MariaDB-cll-lve
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ducklab`
+-- Database: `aoguhafw_ducklab`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `enrolled_subjects` (
   `subject_id` int(11) NOT NULL,
   `progress` int(11) NOT NULL DEFAULT 0,
   `completion_date` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `enrolled_subjects`
@@ -64,7 +64,7 @@ CREATE TABLE `lectures` (
   `subject_id` int(11) NOT NULL,
   `lecture_video_url` text NOT NULL,
   `title` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lectures`
@@ -159,7 +159,7 @@ CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
@@ -186,19 +186,19 @@ CREATE TABLE `subjects` (
   `preview_image` text NOT NULL,
   `duration` varchar(50) NOT NULL,
   `year_level` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `subjects`
 --
 
 INSERT INTO `subjects` (`id`, `name`, `slug`, `description`, `image_source`, `prof`, `preview_image`, `duration`, `year_level`) VALUES
-(1, 'Human Computer Interaction', 'human-computer-interaction', 'Human-computer interaction (HCI) is a research field that studies and designs the interaction between people and computers. It is a multidisciplinary field that involves computer science, behavioral sciences, design, and other fields of study. HCI aims to make computer technology more user-friendly and more usable by considering various factors, such as user capabilities, preferences, experience, personality, cognitive abilities, motivation, and emotion. HCI also includes the implementation and evaluation of user interfaces for computer systems.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/hci.png', 'Prof.Micheal Noel Tolentino', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course1.jpg', '05 hours 15 minutes', '2nd'),
-(2, 'Object Oriented Programming', 'object-oriented-programming', 'Object-oriented programming (OOP) is a programming paradigm that uses classes and objects to structure a software program. Classes are blueprints for creating objects, which are instances of classes. Objects have their own properties and behavior, which may contain data and code. OOP is used to implement real-world things in software development, such as inheritance, hiding, and polymorphism. OOP languages are usually class-based.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/oop.png', 'Prof.Dianna P. Suk', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course2.jpg', '05 hours 15 minutes', '2nd'),
-(3, 'Physical Education 4 (Team Sports)', 'physical-education-4', 'Physical Education 4\'s goal is to inspire students to experiment with both indoor and outdoor physical activities. This course is crucial for students at all levels because it fosters social skills and serves as a reminder that learning can be more than just doing homework. Four sports\' histories will be covered in this course: basketball, volleyball, softball/baseball, and football. Learn the fundamental hand signals and movements for the four sports that are included: football, basketball, volleyball, and softball/baseball. You should also demonstrate how to play each sport.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/pef.png', 'Prof.John Paul Ludovice', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course3.jpg', '05 hours 15 minutes', '2nd'),
-(4, 'Office Productivity 4 (AutoCad)', 'office-productivity-autocad', 'Office Productivity 3 Animation Course is a training program focused on enhancing animation skills within the context of office productivity tools. It is designed to teach individuals how to create dynamic and engaging presentations, documents, and spreadsheets using animation techniques. Participants can expect to gain practical skills in creating visually compelling animations to enhance their office productivity tasks, presentations, and documents.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/opa.png', 'Prof.Edmar Tan', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course4.jpg', '05 hours 15 minutes', '2nd'),
-(5, 'Rizal\'s Life, Works And Writting', 'rizal-works-and-writing', 'The course Rizal\'s Life, Works, And Writing aims to give students a better knowledge of Rizal\'s contributions to Philippine history, culture, and the war for independence. Students will analyze Rizal\'s role as a reformist and his impact on national consciousness through a combination of lectures, readings, conversations, and multimedia tools.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/rizal.png', 'Prof.Ivan Jorelle Opena', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course5.jpg', '05 hours 15 minutes', '2nd'),
-(6, 'Math In The Modern World', 'math-in-the-modern-world', 'Mathematics in the modern world is a subject or discipline that deals with the nature, appreciation, and application of mathematics in different branches and aspects of life. Mathematics is a universal language that helps us understand our surroundings and solve problems. Mathematics is based on patterns and numbers that can be found in nature and the world. Some of the famous mathematicians who contributed to the development of mathematics in the modern world are Euler, Sir Isaac Newton, Carl Gauss, and Benoit Mandelbrot. Mathematics in the modern world covers topics such as the Fibonacci sequence, variables, sets, relations, functions, reasoning, statistics, and linear regression.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/math.png', 'Prof. Nica Lamar Tan', 'http://localhost/xampploc/Llames/duck-labs/assets/img/course6.jpg', '05 hours 15 minutes', '2nd');
+(1, 'Human Computer Interaction', 'human-computer-interaction', 'Human-computer interaction (HCI) is a research field that studies and designs the interaction between people and computers. It is a multidisciplinary field that involves computer science, behavioral sciences, design, and other fields of study. HCI aims to make computer technology more user-friendly and more usable by considering various factors, such as user capabilities, preferences, experience, personality, cognitive abilities, motivation, and emotion. HCI also includes the implementation and evaluation of user interfaces for computer systems.', 'http://ducklabs.x10.mx/assets/img/hci.png', 'Prof.Micheal Noel Tolentino', 'http://ducklabs.x10.mx/assets/img/course1.jpg', '05 hours 15 minutes', '2nd'),
+(2, 'Object Oriented Programming', 'object-oriented-programming', 'Object-oriented programming (OOP) is a programming paradigm that uses classes and objects to structure a software program. Classes are blueprints for creating objects, which are instances of classes. Objects have their own properties and behavior, which may contain data and code. OOP is used to implement real-world things in software development, such as inheritance, hiding, and polymorphism. OOP languages are usually class-based.', 'http://ducklabs.x10.mx/assets/img/oop.png', 'Prof.Dianna P. Suk', 'http://ducklabs.x10.mx/assets/img/course2.jpg', '05 hours 15 minutes', '2nd'),
+(3, 'Physical Education 4 (Team Sports)', 'physical-education-4', 'Physical Education 4\'s goal is to inspire students to experiment with both indoor and outdoor physical activities. This course is crucial for students at all levels because it fosters social skills and serves as a reminder that learning can be more than just doing homework. Four sports\' histories will be covered in this course: basketball, volleyball, softball/baseball, and football. Learn the fundamental hand signals and movements for the four sports that are included: football, basketball, volleyball, and softball/baseball. You should also demonstrate how to play each sport.', 'http://ducklabs.x10.mx/assets/img/pef.png', 'Prof.John Paul Ludovice', 'http://ducklabs.x10.mx/assets/img/course3.jpg', '05 hours 15 minutes', '2nd'),
+(4, 'Office Productivity 4 (AutoCad)', 'office-productivity-autocad', 'Office Productivity 3 Animation Course is a training program focused on enhancing animation skills within the context of office productivity tools. It is designed to teach individuals how to create dynamic and engaging presentations, documents, and spreadsheets using animation techniques. Participants can expect to gain practical skills in creating visually compelling animations to enhance their office productivity tasks, presentations, and documents.', 'http://ducklabs.x10.mx/assets/img/opa.png', 'Prof.Edmar Tan', 'http://ducklabs.x10.mx/assets/img/course4.jpg', '05 hours 15 minutes', '2nd'),
+(5, 'Rizal\'s Life, Works And Writting', 'rizal-works-and-writing', 'The course Rizal\'s Life, Works, And Writing aims to give students a better knowledge of Rizal\'s contributions to Philippine history, culture, and the war for independence. Students will analyze Rizal\'s role as a reformist and his impact on national consciousness through a combination of lectures, readings, conversations, and multimedia tools.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/rizal.png', 'Prof.Ivan Jorelle Opena', 'http://ducklabs.x10.mx/assets/img/course5.jpg', '05 hours 15 minutes', '2nd'),
+(6, 'Math In The Modern World', 'math-in-the-modern-world', 'Mathematics in the modern world is a subject or discipline that deals with the nature, appreciation, and application of mathematics in different branches and aspects of life. Mathematics is a universal language that helps us understand our surroundings and solve problems. Mathematics is based on patterns and numbers that can be found in nature and the world. Some of the famous mathematicians who contributed to the development of mathematics in the modern world are Euler, Sir Isaac Newton, Carl Gauss, and Benoit Mandelbrot. Mathematics in the modern world covers topics such as the Fibonacci sequence, variables, sets, relations, functions, reasoning, statistics, and linear regression.', 'http://localhost/xampploc/Llames/duck-labs/assets/img/math.png', 'Prof. Nica Lamar Tan', 'http://ducklabs.x10.mx/assets/img/course6.jpg', '05 hours 15 minutes', '2nd');
 
 --
 -- Indexes for dumped tables
